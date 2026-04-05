@@ -11,4 +11,12 @@ model User {
   name      String
   email     String   @unique
   createdAt DateTime @default(now())
+  courses   Course[] // Quan hệ Many-to-Many
+}
+
+model Course {
+  id          Int      @id @default(autoincrement())
+  title       String
+  code        String   @unique
+  users       User[]   // Quan hệ Many-to-Many
 }
