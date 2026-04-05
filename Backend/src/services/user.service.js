@@ -17,3 +17,13 @@ export const createUser = async (user) => {
 export const getAllUsers = async () => {
     return await prisma.user.findMany();
 };
+
+/**
+ * Xóa người dùng khỏi database.
+ * @param {number} id - ID của người dùng.
+ */
+export const deleteUser = async (id) => {
+    return await prisma.user.delete({
+        where: { id: Number(id) }
+    });
+};

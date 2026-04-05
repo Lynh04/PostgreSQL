@@ -4,6 +4,7 @@ import { body, validationResult } from "express-validator";
 import {
     createUserController,
     getAllUsersController,
+    deleteUserController,
 } from "../controllers/user.controller.js";
 
 const router = express.Router();
@@ -28,5 +29,7 @@ router.post(
 );
 
 router.get("/", getAllUsersController);
+
+router.delete("/:id", deleteUserController);
 
 export default router;

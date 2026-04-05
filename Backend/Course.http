@@ -1,0 +1,68 @@
+POST http://localhost:3001/api/courses
+Content-Type: application/json
+
+{
+   "title": "ReactjjjS",
+  "code": "JS2006",
+  "users": [
+    {
+      "id": 3
+    }
+  ]
+}
+
+##
+
+// Đăng ký: POST /api/school/enroll
+// Body: { "userId": 1, "courseId": 10 }
+ 
+###
+
+POST http://localhost:3001/api/enroll
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "courseId": 4
+}
+
+##
+
+// Hủy đăng ký: POST /api/unenroll
+// Body: { "userId": 1, "courseId": 4 }
+ 
+###
+
+POST http://localhost:3001/api/unenroll
+Content-Type: application/json
+
+{
+    "userId": 3,
+    "courseId": 2
+}
+
+
+
+
+##
+
+// Xem thời khóa biểu: GET /api/users/1
+
+###
+
+DELETE  http://localhost:3001/api/courses/4
+
+###
+
+// Xóa khóa học: DELETE /api/school/courses/1
+
+DELETE http://localhost:3001/api/school/courses/1
+
+
+## 
+
+//Xóa người dùng
+
+###
+
+DELETE http://localhost:3001/users/1
