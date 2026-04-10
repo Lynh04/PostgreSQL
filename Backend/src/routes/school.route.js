@@ -7,6 +7,7 @@ import {
     deleteCourseHandler,
     getAllCoursesHandler,
     getCourseDetailHandler,
+    updateCourseHandler,
 } from "../controllers/school.controller.js";
 
 const router = express.Router();
@@ -27,5 +28,6 @@ router.get("/users/:id", getUserTranscriptHandler);
 router.get("/courses", getAllCoursesHandler);
 router.get("/courses/:id", getCourseDetailHandler);
 router.delete("/courses/:id", deleteCourseHandler);
+router.put("/courses/:id", updateCourseHandler);
 
 export default router;

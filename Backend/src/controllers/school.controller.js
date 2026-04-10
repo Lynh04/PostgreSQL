@@ -71,3 +71,16 @@ export const getCourseDetailHandler = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+export const updateCourseHandler = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { title, code } = req.body;
+        const result = await service.updateCourse(id, { title, code });
+        res.json(result);
+    } catch (error) {
+        if (error.code === 'P2025') return res.status(404).json({ error: "Course not found" });
+        const status = error.code === 'P2002' ? 409 : 500;
+        res.status(status).json({ error: error.message });
+    }
+};

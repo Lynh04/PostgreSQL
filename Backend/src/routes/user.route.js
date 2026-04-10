@@ -5,6 +5,7 @@ import {
     createUserController,
     getAllUsersController,
     deleteUserController,
+    updateUserController,
 } from "../controllers/user.controller.js";
 
 const router = express.Router();
@@ -31,5 +32,15 @@ router.post(
 router.get("/", getAllUsersController);
 
 router.delete("/:id", deleteUserController);
+
+router.put(
+    "/:id",
+    [
+        body("name").trim().notEmpty().withMessage("Name is required"),
+        body("email").isEmail().withMessage("Email is invalid"),
+    ],
+    validate,
+    updateUserController
+);
 
 export default router;

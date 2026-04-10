@@ -70,3 +70,11 @@ export const getCourseWithUsers = async (courseId) => {
         include: { users: true }
     });
 };
+
+// 8. Cập nhật khóa học
+export const updateCourse = async (courseId, data) => {
+    return await prisma.course.update({
+        where: { id: Number(courseId) },
+        data,
+    });
+};

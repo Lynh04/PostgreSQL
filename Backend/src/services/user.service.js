@@ -27,3 +27,10 @@ export const deleteUser = async (id) => {
         where: { id: Number(id) }
     });
 };
+
+export const updateUser = async (id, data) => {
+    return await prisma.user.update({
+        where: { id: Number(id) },
+        data,
+    });
+};

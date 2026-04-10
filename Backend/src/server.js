@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import userRouter from "./routes/user.route.js";
 import schoolRouter from "./routes/school.route.js";
+import statsRouter from "./routes/stats.route.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(express.json());
 // Routes
 app.use("/users", userRouter);
 app.use("/api", schoolRouter);
+app.use("/stats", statsRouter);
 
 // Khởi động Server
 app.listen(PORT, () => {
