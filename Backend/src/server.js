@@ -8,11 +8,21 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+// CORS Configuration
+const corsOptions = {
+    origin: [
+        "http://localhost:3000",
+
+        "https://postgre-jngj5m1fc-lynh04s-projects.vercel.app"
+    ],
+    credentials: true
+};
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Routes
