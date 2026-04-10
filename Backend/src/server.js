@@ -12,8 +12,8 @@ dotenv.config();
 const corsOptions = {
     origin: [
         "http://localhost:3000",
-
-        "https://postgre-jngj5m1fc-lynh04s-projects.vercel.app"
+        "https://postgre-jngj5m1fc-lynh04s-projects.vercel.app",
+        "https://postgre-sql-swart.vercel.app"
     ],
     credentials: true
 };
@@ -26,6 +26,9 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // Routes
+app.get("/", (req, res) => {
+    res.json({ message: "Backend is running!" });
+});
 app.use("/api/users", userRouter);
 app.use("/api/stats", statsRouter);
 app.use("/api", schoolRouter);
